@@ -63,7 +63,7 @@ Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in 
 
 >Proposed Query:
 ```sql
-SELECT 
+SELECT
 	COUNT(*)
 FROM 
 	yellow_taxi_trips
@@ -88,12 +88,15 @@ Which was the day with the largest trip distance. Use the pick up time for your 
 >Proposed Query:
 ```sql
 SELECT 
-	COUNT(*)
+	lpep_pickup_datetime::Date,
+	MAX(trip_distance) as max_trip
 FROM 
 	yellow_taxi_trips
-WHERE 
-	lpep_pickup_datetime::Date = '2019-01-15' AND
-	lpep_dropoff_datetime::Date = '2019-01-15'
+GROUP BY 
+	lpep_pickup_datetime::Date
+ORDER BY 
+	max_trip DESC
+LIMIT 1
 ```
 >Output:
 ```
@@ -121,7 +124,7 @@ FROM
 WHERE 
 	lpep_pickup_datetime::Date = '2019-01-01' 
 GROUP BY 
-  1,2
+  	1,2
 ```
 >Output:
 ```
@@ -143,16 +146,21 @@ Note: it's not a typo, it's `tip` , not `trip`
 >Proposed Query:
 ```sql
 SELECT 
-	lpep_pickup_datetime::Date,
-	passenger_count,
-	COUNT(1) FILTER (WHERE passenger_count = 2) as count_trips_w_2,
-	COUNT(1) FILTER(WHERE passenger_count = 3) as count_trips_w_3
+	"DOLocationID",
+	zdo."Zone",
+	MAX(tip_amount) max_tip
 FROM 
-	yellow_taxi_trips
-WHERE 
-	lpep_pickup_datetime::Date = '2019-01-01' 
-GROUP BY 
-  1,2
+	yellow_taxi_trips t JOIN zones zpu 
+		ON t."PULocationID" = zpu."LocationID"
+	JOIN zones zdo
+		ON t."DOLocationID" = zdo."LocationID"
+WHERE
+	zpu."Zone" ilike '%astoria%'
+GROUP BY
+	1,2
+ORDER BY 
+	max_tip DESC
+Limit 1
 ```
 >Output:
 ```
