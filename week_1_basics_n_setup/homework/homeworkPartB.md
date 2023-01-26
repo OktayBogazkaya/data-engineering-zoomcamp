@@ -111,3 +111,5 @@ Output:
     google_storage_bucket.data-lake-bucket: Creating...
     google_storage_bucket.data-lake-bucket: Creation complete after 1s [id=dtc_data_lake_gentle-presence-375809]
     google_bigquery_dataset.dataset: Creation complete after 1s [id=projects/gentle-presence-375809/datasets/trips_data_all]
+    
+    Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
