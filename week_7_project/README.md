@@ -45,7 +45,8 @@ The dataset for this project is sourced from the **r/wallstreetbets** subreddit 
 
 ## Architecture 
 
-![DE Zoomcamp Project Architecture](https://github.com/[zenofanalytics]/[week_7_project]/blob/[main]/[assets]de_zoomcamp_project_architecture.png?raw=true)
+![de-zoomcamp_project_architecture](https://user-images.githubusercontent.com/104417609/236315334-b4b7c01b-866a-4d7a-a1e5-64532f9699d3.png)
+
 
 ## Dashboard 
 
@@ -55,7 +56,8 @@ Link to the dashboard: https://lookerstudio.google.com/datasources/dc888e97-5a6b
 
 This is the first MVP and gives an overview of the daily discussions in the WallStreetBet subreddit with main focus on stock market and and sentiment analysis. As this projects develops, new KPI's will be added in the future. 
 
-![MVP Dashboard DEZoomcamp Project](https://github.com/[zenofanalytics]/[week_7_project]/blob/[main]/[assets]MVP_Dashboard_DEZoomcamp_Project.png?raw=true)
+![MVP Dashboard DEZoomcamp Project](https://user-images.githubusercontent.com/104417609/236315359-708f8efb-0fde-4012-8820-3c8cca5749db.png)
+
 
 ## Getting Started/Reproducibility
 
@@ -154,31 +156,15 @@ prefect orion start
 ```
 2. Go to the Prefect UI and select *+Block** from the menu
 
-![Select Block from Prefect UI](https://github.com/[zenofanalytics]/[week_7_project]/blob/[main]/[assets]Select_Block_from_Prefect_UI.png?raw=true)
-
 3. Click **Add Block** and search for **GCS Bucket**
-
-![Add Block in Prefect UI](https://github.com/[zenofanalytics]/[week_7_project]/blob/[main]/[assets]Add_Block_in_Prefect_UI.png?raw=true)
-
-![Select GCS Bucket Block in Prefect UI](https://github.com/[zenofanalytics]/[week_7_project]/blob/[main]/[assets]Select_GCS_Bucket_Block_in_Prefect_UI.png?raw=true)
 
 4. Fill in the *+Block Name** and name of the *+Bucket** which was set when creating the infrastructure with terraform 
 
-![Create GCS Bucket Block in Prefect UI](https://github.com/[zenofanalytics]/[week_7_project]/blob/[main]/[assets]Create_GCS_Bucket_Block_in_Prefect_UI.png?raw=true)
-
 5. Click on **GCP Credentials** to create another Block and add the content of the .json file which was created when setting up the Service Account 
-
-![Create GCS Cred Block in Prefect UI](https://github.com/[zenofanalytics]/[week_7_project]/blob/[main]/[assets]Create_GCS_Cred_Block_in_Prefect_UI.png?raw=true)
-
-![Add Service Account .json file in Prefect UI](https://github.com/[zenofanalytics]/[week_7_project]/blob/[main]/[assets]Add_Service_Account_.json_file_in_Prefect_UI.png?raw=true)
 
 6. Select the newly created **GCP Cred** Block
 
-![Select GCP Cred Block in Prefect UI](https://github.com/[zenofanalytics]/[week_7_project]/blob/[main]/[assets]Select_GCP_Cred_Block_in_Prefect_UI.png?raw=true)
-
 7. Now, the code snippet generated can be passed into the flow codes to use the Blocks 
-
-![Copy Code Snippet for GCS Bucket Block from Prefect UI into Flow Codes](https://github.com/[zenofanalytics]/[week_7_project]/blob/[main]/[assets]Copy_Code_Snippet for_GCS_Bucket_Block_from_Prefect_UI_into_Flow_Codes.png?raw=true)
 
 ### Deploy Workflow with Prefect
 
@@ -202,11 +188,10 @@ prefect deployment build etl_web_to_gcs.py:etl_web_to_gcs -n 'Reddit ETL' --cron
 
 In the Prefect UI under Deployments the newly created flow can be seen
 
-![Workflow Deployment with Prefect](https://github.com/[zenofanalytics]/[week_7_project]/blob/[main]/[assets]Workflow_Deployment_with_Prefect.png?raw=true)
-
 >`After running the code, another filed .yaml will be created which basically contains all the metadata that the Prefect needs to know in order to start orchestrating`
 
 4. Start an agent that puls work from the an work queue:
+5. 
 ```  
 prefect agent start  --work-queue "default"
 ```  
