@@ -52,16 +52,15 @@ The dataset for this project is sourced from the **r/wallstreetbets** subreddit 
 
 Looker Studio is used to build the dashboard which pulls data from the BQ table.
 
-Link to the dashboard: https://lookerstudio.google.com/datasources/dc888e97-5a6b-4de1-bb8a-86c5c49468aa
+Link to the dashboard: https://lookerstudio.google.com/s/m8JfZ83by7M
 
 This is the first MVP and gives an overview of the daily discussions in the WallStreetBet subreddit with main focus on stock market and and sentiment analysis. As this projects develops, new KPI's will be added in the future. 
 
-![MVP Dashboard DEZoomcamp Project](https://user-images.githubusercontent.com/104417609/236315359-708f8efb-0fde-4012-8820-3c8cca5749db.png)
-
+![MVP Dashboard DEZoomcamp Project](https://user-images.githubusercontent.com/104417609/236445660-bd950c7b-7cbe-4210-8650-492bd5244a80.png)
 
 ## Getting Started/Reproducibility
 
-This section contains the steps you need to follow to reproduce the project results. First, make sure to follow all the steps in [presteps](data-engineering-zoomcamp/week_7_project/presteps.md) for seting up the VM and configuring the infrastructure.
+This section contains the steps you need to follow to reproduce the project results. First, make sure to follow all the steps in `presteps.md` file for seting up the VM and configuring the infrastructure.
 
 ### Signup for Reddit and Create Reddit API
 
